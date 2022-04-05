@@ -1,4 +1,4 @@
-package net.idrok.ansquestion.entity;
+package net.idrok.ansquestion.model;
 
 public enum Role {
     ADMIN,
