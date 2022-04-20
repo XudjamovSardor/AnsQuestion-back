@@ -24,6 +24,8 @@ public class Person {
 
     private LocalDate RegistDate;
 
+    private Role role;
+
     public Person() {}
 
     public Person(Long id, String first_name, String last_name, String email, String password, LocalDate registDate) {

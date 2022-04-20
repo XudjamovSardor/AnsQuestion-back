@@ -26,10 +26,12 @@ public class Question {
 
     private LocalDate QuestionDate;
 
+    private QuestionLevl questionLevl;
+
 
     public Question() {}
 
-    public Question(Long id, String questionString, File questionPhoto, Person person, Class aClass, SubjectLevl subjectLevl, LocalDate questionDate) {
+    public Question(Long id, String questionString, File questionPhoto, Person person, Class aClass, SubjectLevl subjectLevl, LocalDate questionDate, QuestionLevl questionLevl) {
         this.id = id;
         QuestionString = questionString;
         QuestionPhoto = questionPhoto;
@@ -37,6 +39,7 @@ public class Question {
         this.aClass = aClass;
         this.subjectLevl = subjectLevl;
         QuestionDate = questionDate;
+        this.questionLevl = questionLevl;
     }
 
     public Long getId() {
@@ -93,5 +96,13 @@ public class Question {
 
     public void setQuestionDate(LocalDate questionDate) {
         QuestionDate = questionDate;
+    }
+
+    public QuestionLevl getQuestionLevl() {
+        return questionLevl;
+    }
+
+    public void setQuestionLevl(QuestionLevl questionLevl) {
+        this.questionLevl = questionLevl;
     }
 }
