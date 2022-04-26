@@ -18,8 +18,9 @@ public class PersonController {
     }
 
     @GetMapping
-    public List<Person> getAll() {
-        return personService.getAll();
+    public List<Person> getAll(@RequestParam(value = "key", required = false) String key) {
+        if (key == null) key = "";
+        return personService.getAll(key);
     }
 
     @PostMapping
