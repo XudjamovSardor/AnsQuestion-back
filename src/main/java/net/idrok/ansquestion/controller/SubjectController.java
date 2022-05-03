@@ -18,8 +18,8 @@ public class SubjectController {
     }
 
     @GetMapping
-    public List<Subject> getAll() {
-        return subjectService.getAll();
+    public List<Subject> getAll(@RequestParam(value = "key", required = false) String key) {
+        return subjectService.getAll(key);
     }
 
     @PostMapping

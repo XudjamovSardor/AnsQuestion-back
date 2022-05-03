@@ -16,8 +16,8 @@ public class SubjectService {
         this.subjectRepository = subjectRepository;
     }
 
-    public List<Subject> getAll() {
-        return subjectRepository.findAll();
+    public List<Subject> getAll(String key) {
+        return subjectRepository.findAllByName(key);
     }
 
     public Subject create(Subject subject) {
