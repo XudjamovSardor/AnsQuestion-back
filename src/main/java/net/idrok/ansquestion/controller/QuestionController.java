@@ -18,8 +18,9 @@ public class QuestionController {
     }
 
     @GetMapping
-    public List<Question> getAll() {
-        return questionService.getAll();
+    public List<Question> getAll(@RequestParam(value = "key", required = false) String key) {
+        if (key == null) key = "";
+        return questionService.getAll(key);
     }
 
     @PostMapping

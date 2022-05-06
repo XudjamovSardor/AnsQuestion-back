@@ -12,34 +12,37 @@ public class Question {
     private Long id;
 
     @Column(nullable = false)
-    private String QuestionString;
+    private String questionString;
 
-    private File QuestionPhoto;
+    private String questionPhoto;
 
     @ManyToOne
     private Person person;
 
-    @Column(name = "class")
+    @Column(name = "class", nullable = true)
     private Class aClass;
 
-    private SubjectLevl subjectLevl;
 
-    private LocalDate QuestionDate;
+
+    private LocalDate questionDate;
 
     private QuestionLevl questionLevl;
+
+    @ManyToOne
+    private Subject subject;
 
 
     public Question() {}
 
-    public Question(Long id, String questionString, File questionPhoto, Person person, Class aClass, SubjectLevl subjectLevl, LocalDate questionDate, QuestionLevl questionLevl) {
+    public Question(Long id, String questionString, String questionPhoto, Person person, Class aClass, LocalDate questionDate, QuestionLevl questionLevl, Subject subject) {
         this.id = id;
-        QuestionString = questionString;
-        QuestionPhoto = questionPhoto;
+        this.questionString = questionString;
+        this.questionPhoto = questionPhoto;
         this.person = person;
         this.aClass = aClass;
-        this.subjectLevl = subjectLevl;
-        QuestionDate = questionDate;
+        this.questionDate = questionDate;
         this.questionLevl = questionLevl;
+        this.subject = subject;
     }
 
     public Long getId() {
@@ -51,19 +54,19 @@ public class Question {
     }
 
     public String getQuestionString() {
-        return QuestionString;
+        return questionString;
     }
 
     public void setQuestionString(String questionString) {
-        QuestionString = questionString;
+        this.questionString = questionString;
     }
 
-    public File getQuestionPhoto() {
-        return QuestionPhoto;
+    public String getQuestionPhoto() {
+        return questionPhoto;
     }
 
-    public void setQuestionPhoto(File questionPhoto) {
-        QuestionPhoto = questionPhoto;
+    public void setQuestionPhoto(String questionPhoto) {
+        this.questionPhoto = questionPhoto;
     }
 
     public Person getPerson() {
@@ -82,20 +85,12 @@ public class Question {
         this.aClass = aClass;
     }
 
-    public SubjectLevl getSubjectLevl() {
-        return subjectLevl;
-    }
-
-    public void setSubjectLevl(SubjectLevl subjectLevl) {
-        this.subjectLevl = subjectLevl;
-    }
-
     public LocalDate getQuestionDate() {
-        return QuestionDate;
+        return questionDate;
     }
 
     public void setQuestionDate(LocalDate questionDate) {
-        QuestionDate = questionDate;
+        this.questionDate = questionDate;
     }
 
     public QuestionLevl getQuestionLevl() {
@@ -104,5 +99,13 @@ public class Question {
 
     public void setQuestionLevl(QuestionLevl questionLevl) {
         this.questionLevl = questionLevl;
+    }
+
+    public Subject getSubject() {
+        return subject;
+    }
+
+    public void setSubject(Subject subject) {
+        this.subject = subject;
     }
 }

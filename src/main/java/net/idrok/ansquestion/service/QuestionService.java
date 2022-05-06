@@ -15,8 +15,8 @@ public class QuestionService {
         this.questionRepository = questionRepository;
     }
 
-    public List<Question> getAll() {
-        return questionRepository.findAll();
+    public List<Question> getAll(String key) {
+        return questionRepository.findByQuestion(key);
     }
 
     public Question create(Question question) {
